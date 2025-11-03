@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LS400 Blueprint - Camresh-James</title>
     <link rel="shortcut icon" href="icon.png" type="image/x-icon">
     <style>
+        :root {
+            /* Primary Colors */
+            --color-primary: #ff6537;
+            --color-primary-light: #ffccbc;
+            --color-primary-dark: #ff8a65;
+            --color-primary-glow: rgba(255, 171, 145, 0.4);
+            --color-primary-shadow: rgba(255, 171, 145, 0.3);
+            --color-primary-bright: rgba(255, 171, 145, 0.8);
+            --color-primary-subtle: rgba(255, 171, 145, 0.2);
+
+            /* Background Colors */
+            --color-bg-darkest: #1a0f0a;
+            --color-bg-dark: #2c1810;
+            --color-bg-medium: #3e2723;
+            --color-bg-light: #4e342e;
+            --color-bg-lighter: #5d4037;
+
+            /* Border & Accent Colors */
+            --color-border-dark: #6d4c41;
+            --color-border-medium: #8d6e63;
+            --color-border-light: #a1887f;
+
+            /* Text Colors */
+            --color-text-primary: #f5f5f5;
+            --color-text-secondary: #e0e0e0;
+            --color-text-tertiary: #fff3e0;
+            --color-text-muted: #bdbdbd;
+            --color-text-legacy: #d7ccc8;
+
+            /* Success/Green Colors */
+            --color-success: #81c784;
+            --color-success-bg: rgba(129, 199, 132, 0.2);
+            --color-success-bg-hover: rgba(129, 199, 132, 0.3);
+
+            /* Transparent Overlays */
+            --overlay-dark: rgba(0, 0, 0, 0.8);
+            --overlay-medium: rgba(62, 39, 35, 0.95);
+            --overlay-light: rgba(93, 64, 55, 0.5);
+            --overlay-lighter: rgba(93, 64, 55, 0.3);
+            --overlay-subtle: rgba(62, 39, 35, 0.5);
+            --overlay-border-hover: rgba(141, 110, 99, 0.5);
+
+            /* Shadow Colors */
+            --shadow-dark: rgba(0, 0, 0, 0.7);
+            --shadow-medium: rgba(0, 0, 0, 0.6);
+            --shadow-light: rgba(0, 0, 0, 0.5);
+            --shadow-subtle: rgba(0, 0, 0, 0.4);
+            --shadow-very-light: rgba(0, 0, 0, 0.3);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -14,8 +65,8 @@
 
         body {
             font-family: 'Courier New', monospace;
-            background: linear-gradient(135deg, #3e2723 0%, #4e342e 50%, #5d4037 100%);
-            color: #f5f5f5;
+            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 50%, var(--color-bg-lighter) 100%);
+            color: var(--color-text-primary);
             overflow: hidden;
             height: 100vh;
         }
@@ -28,10 +79,10 @@
         }
 
         .header {
-            background: linear-gradient(180deg, #1a0f0a 0%, #2c1810 50%, #3e2723 100%);
+            background: linear-gradient(180deg, var(--color-bg-darkest) 0%, var(--color-bg-dark) 50%, var(--color-bg-medium) 100%);
             padding: 25px 40px;
-            border-bottom: 5px solid #8d6e63;
-            box-shadow: 0 6px 30px rgba(0,0,0,0.7);
+            border-bottom: 5px solid var(--color-border-medium);
+            box-shadow: 0 6px 30px var(--shadow-dark);
             position: relative;
             clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
         }
@@ -43,7 +94,7 @@
             left: 3%;
             right: 3%;
             height: 3px;
-            background: linear-gradient(90deg, transparent, #6d4c41 20%, #6d4c41 80%, transparent);
+            background: linear-gradient(90deg, transparent, var(--color-border-dark) 20%, var(--color-border-dark) 80%, transparent);
             border-radius: 2px;
         }
 
@@ -54,21 +105,21 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, transparent 10%, #ffab91 30%, #d7ccc8 50%, #ffab91 70%, transparent 90%);
+            background: linear-gradient(90deg, transparent 10%, var(--color-primary) 30%, var(--color-text-legacy) 50%, var(--color-primary) 70%, transparent 90%);
         }
 
         .title {
             font-size: 32px;
             font-weight: bold;
-            color: #ffab91;
-            text-shadow: 0 0 20px rgba(255,171,145,0.4), 2px 2px 4px rgba(0,0,0,0.8);
+            color: var(--color-primary);
+            text-shadow: 0 0 20px var(--color-primary-glow), 2px 2px 4px var(--overlay-dark);
             letter-spacing: 6px;
             text-align: center;
         }
 
         .subtitle {
             font-size: 11px;
-            color: #e0e0e0;
+            color: var(--color-text-secondary);
             margin-top: 8px;
             letter-spacing: 3px;
             text-align: center;
@@ -86,17 +137,17 @@
         .vent {
             width: 6px;
             height: 20px;
-            background: linear-gradient(180deg, #4e342e, #2c1810);
+            background: linear-gradient(180deg, var(--color-bg-light), var(--color-bg-dark));
             border-radius: 1px;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+            box-shadow: inset 0 1px 2px var(--shadow-light);
         }
 
         .viewport {
             flex: 1;
             position: relative;
             overflow: hidden;
-            background: #4e342e;
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+            background: var(--color-bg-light);
+            box-shadow: inset 0 0 50px var(--shadow-very-light);
             padding: 20px;
             display: flex;
             align-items: center;
@@ -116,15 +167,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
-            border: 2px solid #6d4c41;
+            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
+            border: 2px solid var(--color-border-dark);
             border-radius: 8px;
             padding: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 30px var(--shadow-subtle);
             opacity: 0;
             transform: scale(0.9);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
             overflow-y: auto;
         }
@@ -134,20 +185,20 @@
         }
 
         .section::-webkit-scrollbar-track {
-            background: rgba(46, 24, 16, 0.5);
+            background: var(--overlay-light);
             border-radius: 6px;
-            border: 1px solid #3e2723;
+            border: 1px solid var(--color-bg-medium);
         }
 
         .section::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #8d6e63 0%, #6d4c41 100%);
+            background: linear-gradient(180deg, var(--color-border-medium) 0%, var(--color-border-dark) 100%);
             border-radius: 6px;
-            border: 2px solid #4e342e;
-            box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border: 2px solid var(--color-bg-light);
+            box-shadow: inset 0 0 6px var(--shadow-very-light);
         }
 
         .section::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #a1887f 0%, #8d6e63 100%);
+            background: linear-gradient(180deg, var(--color-border-light) 0%, var(--color-border-medium) 100%);
         }
 
         .section.active {
@@ -163,29 +214,29 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #8d6e63, #a1887f, #8d6e63);
+            background: linear-gradient(90deg, var(--color-border-medium), var(--color-border-light), var(--color-border-medium));
         }
 
         .section-title {
             font-size: 20px;
-            color: #ffab91;
+            color: var(--color-primary);
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 1px solid #6d4c41;
+            border-bottom: 1px solid var(--color-border-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .layer {
-            background: rgba(93, 64, 55, 0.3);
+            background: var(--overlay-lighter);
             padding: 15px;
             margin: 10px 0;
-            border-left: 4px solid #8d6e63;
+            border-left: 4px solid var(--color-border-medium);
             border-radius: 4px;
         }
 
         .layer-title {
-            color: #fff3e0;
+            color: var(--color-text-tertiary);
             font-weight: bold;
             margin-bottom: 8px;
         }
@@ -193,19 +244,19 @@
         .item {
             margin: 15px 0;
             padding: 15px;
-            background: rgba(62, 39, 35, 0.5);
+            background: var(--overlay-subtle);
             border-radius: 4px;
-            border-left: 3px solid #a1887f;
+            border-left: 3px solid var(--color-border-light);
         }
 
         .item-title {
-            color: #ffab91;
+            color: var(--color-primary);
             font-weight: bold;
             margin-bottom: 8px;
         }
 
         .price {
-            color: #81c784;
+            color: var(--color-success);
             font-weight: bold;
         }
 
@@ -229,20 +280,20 @@
         .dial {
             width: 120px;
             height: 120px;
-            background: radial-gradient(circle, #3e2723 0%, #2c1810 100%);
-            border: 4px solid #8d6e63;
+            background: radial-gradient(circle, var(--color-bg-medium) 0%, var(--color-bg-dark) 100%);
+            border: 4px solid var(--color-border-medium);
             border-radius: 50%;
             position: relative;
             cursor: pointer;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6),
-                        inset 0 2px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 30px var(--shadow-medium),
+                inset 0 2px 10px var(--shadow-light);
             transition: all 0.3s;
         }
 
         .dial:hover {
-            border-color: #ffab91;
-            box-shadow: 0 8px 30px rgba(255,171,145,0.3),
-                        inset 0 2px 10px rgba(0,0,0,0.5);
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 30px var(--color-primary-shadow),
+                inset 0 2px 10px var(--shadow-light);
         }
 
         .dial::before {
@@ -253,7 +304,7 @@
             width: 80%;
             height: 80%;
             transform: translate(-50%, -50%);
-            border: 2px solid #6d4c41;
+            border: 2px solid var(--color-border-dark);
             border-radius: 50%;
         }
 
@@ -263,11 +314,11 @@
             left: 50%;
             width: 4px;
             height: 45%;
-            background: linear-gradient(180deg, #ffab91 0%, #ff8a65 100%);
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
             transform-origin: bottom center;
             transform: translate(-50%, -100%) rotate(var(--rotation, 0deg));
             border-radius: 2px;
-            box-shadow: 0 0 10px rgba(255,171,145,0.5);
+            box-shadow: 0 0 10px var(--shadow-light);
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -279,9 +330,9 @@
             transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: #ffab91;
+            background: var(--color-primary);
             border-radius: 50%;
-            box-shadow: 0 0 6px rgba(255,171,145,0.8);
+            box-shadow: 0 0 6px var(--color-primary-bright);
         }
 
         .dial-center {
@@ -291,10 +342,10 @@
             transform: translate(-50%, -50%);
             width: 30px;
             height: 30px;
-            background: radial-gradient(circle, #6d4c41 0%, #4e342e 100%);
-            border: 3px solid #8d6e63;
+            background: radial-gradient(circle, var(--color-border-dark) 0%, var(--color-bg-light) 100%);
+            border: 3px solid var(--color-border-medium);
             border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            box-shadow: 0 2px 8px var(--shadow-medium);
         }
 
         .dial-label {
@@ -303,7 +354,7 @@
             left: 50%;
             transform: translateX(-50%);
             font-size: 14px;
-            color: #ffab91;
+            color: var(--color-primary);
             letter-spacing: 2px;
             white-space: nowrap;
         }
@@ -311,13 +362,13 @@
         .control-btn {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #6d4c41 0%, #5d4037 100%);
-            border: 3px solid #8d6e63;
+            background: linear-gradient(135deg, var(--color-border-dark) 0%, var(--color-bg-lighter) 100%);
+            border: 3px solid var(--color-border-medium);
             border-radius: 50%;
-            color: #ffab91;
+            color: var(--color-primary);
             font-size: 24px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px var(--shadow-light);
             transition: all 0.2s;
             display: flex;
             align-items: center;
@@ -325,9 +376,9 @@
         }
 
         .control-btn:hover {
-            background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+            background: linear-gradient(135deg, var(--color-border-medium) 0%, var(--color-border-dark) 100%);
             transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+            box-shadow: 0 6px 20px var(--shadow-medium);
         }
 
         .control-btn:active {
@@ -339,10 +390,10 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(180deg, #2c1810 0%, #3e2723 100%);
-            border-top: 3px solid #8d6e63;
+            background: linear-gradient(180deg, var(--color-bg-dark) 0%, var(--color-bg-medium) 100%);
+            border-top: 3px solid var(--color-border-medium);
             padding: 20px 30px;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 -4px 20px var(--shadow-light);
             display: flex;
             gap: 20px;
             overflow-x: auto;
@@ -361,22 +412,22 @@
             transform: translateX(-50%);
             width: 60px;
             height: 30px;
-            background: linear-gradient(135deg, #6d4c41 0%, #5d4037 100%);
-            border: 3px solid #8d6e63;
+            background: linear-gradient(135deg, var(--color-border-dark) 0%, var(--color-bg-lighter) 100%);
+            border: 3px solid var(--color-border-medium);
             border-radius: 15px 15px 0 0;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffab91;
+            color: var(--color-primary);
             font-size: 18px;
-            box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 -4px 15px var(--shadow-light);
             transition: all 0.3s;
             z-index: 95;
         }
 
         .ports-toggle:hover {
-            background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+            background: linear-gradient(135deg, var(--color-border-medium) 0%, var(--color-border-dark) 100%);
             height: 35px;
         }
 
@@ -387,8 +438,8 @@
         .port {
             min-width: 120px;
             padding: 15px;
-            background: rgba(93, 64, 55, 0.5);
-            border: 2px solid #6d4c41;
+            background: var(--overlay-light);
+            border: 2px solid var(--color-border-dark);
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
@@ -396,19 +447,19 @@
         }
 
         .port:hover {
-            background: rgba(141, 110, 99, 0.5);
-            border-color: #8d6e63;
+            background: var(--overlay-border-hover);
+            border-color: var(--color-border-medium);
             transform: translateY(-3px);
         }
 
         .port.active {
-            background: rgba(255, 171, 145, 0.2);
-            border-color: #ffab91;
+            background: var(--color-primary-subtle);
+            border-color: var(--color-primary);
         }
 
         .port-label {
             font-size: 11px;
-            color: #e0e0e0;
+            color: var(--color-text-secondary);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 5px;
@@ -416,25 +467,25 @@
 
         .port-value {
             font-size: 18px;
-            color: #ffab91;
+            color: var(--color-primary);
             font-weight: bold;
         }
 
         .add-port-btn {
             min-width: 120px;
             padding: 15px;
-            background: rgba(129, 199, 132, 0.2);
-            border: 2px dashed #81c784;
+            background: var(--color-success-bg);
+            border: 2px dashed var(--color-success);
             border-radius: 6px;
             cursor: pointer;
             transition: all 0.3s;
             text-align: center;
-            color: #81c784;
+            color: var(--color-success);
             font-size: 24px;
         }
 
         .add-port-btn:hover {
-            background: rgba(129, 199, 132, 0.3);
+            background: var(--color-success-bg-hover);
             transform: scale(1.05);
         }
 
@@ -443,14 +494,14 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(62, 39, 35, 0.95);
+            background: var(--overlay-medium);
             padding: 12px 30px;
             border-radius: 25px;
-            border: 2px solid #8d6e63;
+            border: 2px solid var(--color-border-medium);
             font-size: 14px;
-            color: #ffab91;
+            color: var(--color-primary);
             letter-spacing: 2px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px var(--shadow-light);
             z-index: 10;
         }
 
@@ -461,7 +512,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.8);
+            background: var(--overlay-dark);
             z-index: 200;
             align-items: center;
             justify-content: center;
@@ -472,16 +523,16 @@
         }
 
         .modal-content {
-            background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
+            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
             padding: 30px;
             border-radius: 10px;
-            border: 3px solid #8d6e63;
+            border: 3px solid var(--color-border-medium);
             max-width: 400px;
             width: 90%;
         }
 
         .modal-title {
-            color: #ffab91;
+            color: var(--color-primary);
             font-size: 18px;
             margin-bottom: 20px;
             text-transform: uppercase;
@@ -492,41 +543,41 @@
             width: 100%;
             padding: 12px;
             margin: 10px 0;
-            background: rgba(93, 64, 55, 0.8);
-            border: 2px solid #6d4c41;
+            background: var(--overlay-light);
+            border: 2px solid var(--color-border-dark);
             border-radius: 4px;
-            color: #ffffff;
+            color: var(--color-text-primary);
             font-family: 'Courier New', monospace;
         }
 
         .modal-input::placeholder {
-            color: #bdbdbd;
+            color: var(--color-text-muted);
         }
 
         .modal-btn {
             padding: 12px 24px;
-            background: linear-gradient(135deg, #6d4c41 0%, #5d4037 100%);
-            border: 2px solid #8d6e63;
+            background: linear-gradient(135deg, var(--color-border-dark) 0%, var(--color-bg-lighter) 100%);
+            border: 2px solid var(--color-border-medium);
             border-radius: 4px;
-            color: #ffab91;
+            color: var(--color-primary);
             cursor: pointer;
             margin: 5px;
             transition: all 0.2s;
         }
 
         .modal-btn:hover {
-            background: linear-gradient(135deg, #8d6e63 0%, #6d4c41 100%);
+            background: linear-gradient(135deg, var(--color-border-medium) 0%, var(--color-border-dark) 100%);
         }
 
         .toast {
             position: fixed;
             top: 120px;
             right: -400px;
-            background: linear-gradient(135deg, #3e2723 0%, #4e342e 100%);
-            border: 2px solid #8d6e63;
+            background: linear-gradient(135deg, var(--color-bg-medium) 0%, var(--color-bg-light) 100%);
+            border: 2px solid var(--color-border-medium);
             border-radius: 8px;
             padding: 20px 25px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 30px var(--shadow-medium);
             z-index: 300;
             transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             min-width: 300px;
@@ -538,7 +589,7 @@
         }
 
         .toast-title {
-            color: #ffab91;
+            color: var(--color-primary);
             font-size: 14px;
             font-weight: bold;
             margin-bottom: 8px;
@@ -547,7 +598,7 @@
         }
 
         .toast-message {
-            color: #f5f5f5;
+            color: var(--color-text-primary);
             font-size: 13px;
             line-height: 1.5;
         }
@@ -559,11 +610,12 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, #ffab91 0%, #ff8a65 100%);
+            background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
             border-radius: 8px 0 0 8px;
         }
     </style>
 </head>
+
 <body>
     <div class="dashboard">
         <div class="header">
@@ -575,7 +627,7 @@
                 <div class="vent"></div>
             </div>
             <div class="title">LS400 BLUEPRINT</div>
-            <div class="subtitle">CAMRESH-JAMES SYSTEM v1.0</div>
+            <div class="subtitle">CAMRESH-JAMES v1.0</div>
         </div>
 
         <div class="viewport">
@@ -617,7 +669,8 @@
                     <div class="section-title">Full Mechanical Service</div>
                     <div class="item">
                         <div class="item-title">What</div>
-                        <div>Valve cover gaskets, oil + filter, coolant flush, belts, water pump inspection, spark plugs, valve adjustment if needed, cam/crank seal check</div>
+                        <div>Valve cover gaskets, oil + filter, coolant flush, belts, water pump inspection, spark
+                            plugs, valve adjustment if needed, cam/crank seal check</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Why</div>
@@ -633,7 +686,8 @@
                     <div class="section-title">ECU & Electronics Stabilization</div>
                     <div class="item">
                         <div class="item-title">What</div>
-                        <div>Replace electrolytic capacitors on ECU. Inspect ECU connectors and ground points. Fit small weatherproof fused relay panel</div>
+                        <div>Replace electrolytic capacitors on ECU. Inspect ECU connectors and ground points. Fit small
+                            weatherproof fused relay panel</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Cost</div>
@@ -641,7 +695,8 @@
                     </div>
                     <div class="item">
                         <div class="item-title">Why</div>
-                        <div>Prevents intermittent ECU failures and electrical gremlins. Very low system intrusion. Local electronics shop can handle this.</div>
+                        <div>Prevents intermittent ECU failures and electrical gremlins. Very low system intrusion.
+                            Local electronics shop can handle this.</div>
                     </div>
                 </div>
 
@@ -654,12 +709,14 @@
                     </div>
                     <div class="item">
                         <div class="item-title">Starter + Wiring</div>
-                        <div>Replace starter if slow. New thick ground strap between engine & chassis. Clean battery terminals. Replace battery if older than 4 years</div>
+                        <div>Replace starter if slow. New thick ground strap between engine & chassis. Clean battery
+                            terminals. Replace battery if older than 4 years</div>
                         <div class="price">KSh 4,000 - 12,000</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Why</div>
-                        <div>Modern accessories need reliable charge. Starter access is annoying on LS - do it once and keep it solid.</div>
+                        <div>Modern accessories need reliable charge. Starter access is annoying on LS - do it once and
+                            keep it solid.</div>
                     </div>
                 </div>
 
@@ -667,12 +724,14 @@
                     <div class="section-title">Brakes, Steering & Suspension</div>
                     <div class="item">
                         <div class="item-title">Brake Master Cylinder</div>
-                        <div>Replace master cylinder (LS430/Mazda compatible upgrade available). New brake fluid. Inspect ABS sensors/lines</div>
+                        <div>Replace master cylinder (LS430/Mazda compatible upgrade available). New brake fluid.
+                            Inspect ABS sensors/lines</div>
                         <div class="price">KSh 5,000 - 20,000</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Steering & Suspension</div>
-                        <div>Replace high-pressure PS hoses if perished. Inspect power steering pump. Renew critical suspension bushings for crispness</div>
+                        <div>Replace high-pressure PS hoses if perished. Inspect power steering pump. Renew critical
+                            suspension bushings for crispness</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Tires</div>
@@ -685,9 +744,11 @@
                     <div class="section-title">Diagnostics & Modern Comforts</div>
                     <div class="item">
                         <div class="item-title">OBD-II Diagnostics</div>
-                        <div>ELM327-style OBD-II dongle (Bluetooth or Wi-Fi) + phone app (Torque, OBD Fusion). Keep hardware code reader and printed DTC table</div>
+                        <div>ELM327-style OBD-II dongle (Bluetooth or Wi-Fi) + phone app (Torque, OBD Fusion). Keep
+                            hardware code reader and printed DTC table</div>
                         <div class="price">KSh 700 - 2,500</div>
-                        <div>Gives live telemetry and codes without vendor lock-in. Log RPM, coolant temp, lambda, throttle, timing advance locally.</div>
+                        <div>Gives live telemetry and codes without vendor lock-in. Log RPM, coolant temp, lambda,
+                            throttle, timing advance locally.</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Hidden Head Unit</div>
@@ -715,11 +776,16 @@
                     </div>
                     <div class="item">
                         <div class="item-title">Priority Sequence</div>
-                        <div>1. Buy clean LS400 → 2. Immediate consumables → 3. Alternator + battery + ground → 4. ECU caps + starter → 5. Brake master cylinder → 6. Tyres → 7. Diagnostics logger → 8. Head unit + LEDs → 9. Document everything</div>
+                        <div>1. Buy clean LS400 → 2. Immediate consumables → 3. Alternator + battery + ground → 4. ECU
+                            caps + starter → 5. Brake master cylinder → 6. Tyres → 7. Diagnostics logger → 8. Head unit
+                            + LEDs → 9. Document everything</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Final Build (Recommended)</div>
-                        <div>Well-maintained early-to-mid-90s LS400, full mechanical refresh, new Denso alternator, ECU cap rebuild, ELM327 logger, hidden Pioneer double-DIN, mid-tier modern tyres. Total ~KSh 150k (median) plus purchase price. Result: truly analog flagship that's quietly smart and locally serviceable.</div>
+                        <div>Well-maintained early-to-mid-90s LS400, full mechanical refresh, new Denso alternator, ECU
+                            cap rebuild, ELM327 logger, hidden Pioneer double-DIN, mid-tier modern tyres. Total ~KSh
+                            150k (median) plus purchase price. Result: truly analog flagship that's quietly smart and
+                            locally serviceable.</div>
                     </div>
                 </div>
             </div>
@@ -802,7 +868,7 @@
             toastTitle.textContent = title;
             toastMessage.textContent = message;
             toast.classList.add('show');
-            
+
             setTimeout(() => {
                 toast.classList.remove('show');
             }, duration);
@@ -832,7 +898,7 @@
                 }
             });
             currentSectionDisplay.textContent = `${currentSection + 1}/${totalSections}`;
-            
+
             const rotation = (currentSection / (totalSections - 1)) * 270 - 135;
             dialIndicator.style.setProperty('--rotation', `${rotation}deg`);
         }
@@ -862,7 +928,7 @@
             const rect = dial.getBoundingClientRect();
             const currentAngle = getAngle(e, rect);
             const delta = currentAngle - startAngle;
-            
+
             if (Math.abs(delta) > 15) {
                 if (delta > 0 && currentSection < totalSections - 1) {
                     currentSection++;
@@ -881,7 +947,7 @@
             const rect = dial.getBoundingClientRect();
             const currentAngle = getAngle(e, rect);
             const delta = currentAngle - startAngle;
-            
+
             if (Math.abs(delta) > 15) {
                 if (delta > 0 && currentSection < totalSections - 1) {
                     currentSection++;
@@ -961,7 +1027,7 @@
         savePortBtn.addEventListener('click', () => {
             const name = portNameInput.value.trim();
             const value = portValueInput.value.trim();
-            
+
             if (name && value) {
                 const newPort = document.createElement('div');
                 newPort.className = 'port';
@@ -970,13 +1036,13 @@
                     <div class="port-label">${name}</div>
                     <div class="port-value">${value}</div>
                 `;
-                
+
                 newPort.addEventListener('click', () => {
                     document.querySelectorAll('.port').forEach(p => p.classList.remove('active'));
                     newPort.classList.add('active');
                     showToast('Custom Port Activated', `${name}: ${value}`);
                 });
-                
+
                 portsPanel.insertBefore(newPort, addPortBtn);
                 portModal.classList.remove('active');
                 showToast('Port Added', `New port "${name}" successfully registered`);
@@ -986,4 +1052,5 @@
         updateView();
     </script>
 </body>
+
 </html>
